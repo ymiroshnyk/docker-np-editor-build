@@ -27,3 +27,7 @@ ENV QT5_DIR /opt/Qt5/lib/cmake/Qt5
 #xauth nlist :0 | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
 #docker run -ti -v $XSOCK:$XSOCK -v $XAUTH:$XAUTH -e XAUTHORITY=$XAUTH xeyes
 
+RUN apt-get update && apt-get install -y \
+	mesa-common-dev \
+	libglu1-mesa-dev
+
