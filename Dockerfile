@@ -8,8 +8,7 @@ RUN apt-get update && apt-get install -y \
 	clang \
 	git \
 	libboost-all-dev \
-	python3 \
-	python3-path
+	python3 
 	
 #cmake with specific version (see -b flag)
 RUN cd /tmp && git clone -b v3.12.0 --single-branch --depth 1 https://cmake.org/cmake.git && cd cmake
