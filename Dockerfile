@@ -31,3 +31,5 @@ RUN apt-get update && apt-get install -y \
 	mesa-common-dev \
 	libglu1-mesa-dev
 
+RUN apt-get update && apt-get install -y \
+	libglib2.0-0
