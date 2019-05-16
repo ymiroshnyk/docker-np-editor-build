@@ -34,7 +34,8 @@ RUN apt-get install -y \
 	libxrender-dev \
 	libxkbcommon-x11-dev \
 	libegl1-mesa \
-	libdbus-1-3
+	libdbus-1-3 \
+	libssl1.0-dev
 ADD qt5.12.1_gcc64_1.tar.xz /opt/Qt5/
 ADD qt5.12.1_gcc64_2.tar.xz /opt/Qt5/
 ENV QT5_DIR /opt/Qt5/lib/cmake/Qt5
