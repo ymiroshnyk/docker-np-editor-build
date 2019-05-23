@@ -91,3 +91,11 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 # END X-SERVER IN DOCKER CONTAINER --------------------------------
+
+# ccache
+RUN apt update && apt install -y \
+	ccache
+RUN /usr/sbin/update-ccache-symlinks
+ENV CCACHE_COMPILERCHECK=content \
+	PATH="/usr/lib/ccache:${PATH}" \
+	CCACHE_DIR=/ccache
