@@ -7,12 +7,22 @@ else
 	# Start Xvfb
 	echo "Starting Xvfb"
 	Xvfb ${DISPLAY} -ac -screen 0 "$XVFB_WHD" -nolisten tcp &
+	Xvfb_pid="$!"
 
-	echo "Waiting for Xvfb to be ready..."
+	echo -n "Waiting for Xvfb to be ready... "
 	while ! xdpyinfo -display ${DISPLAY} > /dev/null 2>&1; do
   		sleep 0.1
 	done
-	echo "...done."
+	echo "done."
 
-	exec "$@"
+	"$@"
+
+	echo -n "Stopping Xvfb... "
+	while kill -n 0 $Xvfb_pid > /dev/null 2>&1; do
+    	wait
+	done
+	echo "done."
+
+	echo -n "Removing Xvfb temporary files."
+	rm -rf /tmp/.X*
 fi
