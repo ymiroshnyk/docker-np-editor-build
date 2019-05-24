@@ -5,7 +5,7 @@ if [ $# -eq 0 ]; then
 	exit 1
 else
 	# Start Xvfb
-	echo "Starting Xvfb"
+	echo "Starting Xvfb."
 	Xvfb ${DISPLAY} -ac -screen 0 "$XVFB_WHD" -nolisten tcp &
 	Xvfb_pid="$!"
 
@@ -23,6 +23,6 @@ else
 	done
 	echo "done."
 
-	echo -n "Removing Xvfb temporary files."
+	#echo "Removing Xvfb temporary files."
 	rm -rf /tmp/.X*
 fi
