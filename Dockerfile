@@ -106,3 +106,7 @@ RUN cd /opt && git clone https://chromium.googlesource.com/breakpad/breakpad \
 	&& cd breakpad && git clone https://chromium.googlesource.com/linux-syscall-support src/third_party/lss \
 	&& ./configure && make -j$(nproc)
 ENV GOOGLE_BREAKPAD_PATH=/opt/breakpad
+
+# clang
+RUN apt update && apt install -y \
+	clang
