@@ -26,7 +26,7 @@ ADD https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.gz /t
 #RUN apt-get install -y \
 #	python-dev
 #autotools-dev libicu-dev build-essential libbz2-dev
-RUN cd /tmp && tar -xzf ./boost* && cd boost* && ./bootstrap.sh --prefix=/usr/ && ./b2 --build-type=minimal -j$(nproc) install
+RUN cd /tmp && tar -xzf ./boost* && cd boost* && ./bootstrap.sh --prefix=/usr/ && ./b2 --link=static --build-type=minimal -j$(nproc) install
 
 # Qt5 binaries
 RUN apt install -y \
