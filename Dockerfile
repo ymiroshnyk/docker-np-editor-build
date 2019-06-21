@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 # cmake
 RUN apt-get install -y \
 	git
-RUN cd /tmp && git clone -b v3.12.0 --single-branch --depth 1 https://cmake.org/cmake.git && cd cmake
+RUN cd /tmp && git clone -b v3.12.3 --single-branch --depth 1 https://cmake.org/cmake.git && cd cmake
 RUN cd /tmp/cmake && ./configure && make -j$(nproc) && make install && cd .. && rm -rf cmake
 
 # Python3
@@ -29,7 +29,7 @@ ADD https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.gz /t
 RUN cd /tmp && tar -xzf ./boost* && cd boost* && ./bootstrap.sh --prefix=/usr/ && ./b2 --build-type=minimal -j$(nproc) install
 
 # Qt5 binaries
-RUN apt install -y \
+RUN apt update && apt install -y \
 	libfontconfig \
 	libxrender-dev \
 	libxkbcommon-x11-dev \
