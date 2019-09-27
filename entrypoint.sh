@@ -16,6 +16,7 @@ else
 	echo "done."
 
 	"$@"
+	returnValue=$?
 
 	echo -n "Stopping Xvfb... "
 	while kill -n 0 $Xvfb_pid > /dev/null 2>&1; do
@@ -25,4 +26,6 @@ else
 
 	#echo "Removing Xvfb temporary files."
 	rm -rf /tmp/.X*
+	
+	exit $returnValue
 fi
