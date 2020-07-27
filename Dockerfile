@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 # cmake
 RUN apt-get install -y \
 	git
-RUN cd /tmp && git clone -b v3.12.3 --single-branch --depth 1 https://cmake.org/cmake.git && cd cmake
+RUN cd /tmp && git clone -b v3.12.3 --single-branch --depth 1 https://gitlab.kitware.com/cmake/cmake.git && cd cmake
 RUN cd /tmp/cmake && ./configure && make -j$(nproc) && make install && cd .. && rm -rf cmake
 
 # Python3
